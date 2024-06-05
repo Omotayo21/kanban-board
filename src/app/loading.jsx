@@ -1,12 +1,12 @@
-
-import Loader from "../app/_components/Loader"
+import React from "react";
+import Loader2 from "./_components/Loader2";
 
 const Loading = () => {
   return (
-    <div className="mt-64" >
-  <Loader />
-  </div>
-  )
-}
+    <div className="mt-64">
+      <Loader2 />
+    </div>
+  );
+};
 
-export default Loading
+export default Loading;
