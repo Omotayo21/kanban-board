@@ -1,12 +1,9 @@
-import React from "react";
-import Loader2 from "./_components/Loader2";
+import React from 'react'
 
-const Loading = () => {
+const loading = () => {
   return (
-    <div className="mt-64">
-      <Loader2 />
-    </div>
-  );
-};
+    <div className='Loader'></div>
+  )
+}
 
-export default Loading;
+export default loading
