@@ -39,7 +39,7 @@ export default function VerifyEmailPage() {
         <>
             <div className="flex flex-col items-center justify-center min-h-screen py-2">
                 <h1 className="text-4xl">Verify Email</h1>
-                <h2 className="sm:text-sm">{token ? `${token}` : 'No token'}</h2>
+            
 
                 {verified && (
                     <div className="mt-4">

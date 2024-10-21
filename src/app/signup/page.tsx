@@ -256,23 +256,8 @@ const Signup: React.FC = () => {
           {loading ? "Signing up..." : "Sign up"}
         </button>
         {/* Divider */}
-        <div className="my-4 flex items-center">
-          <hr className="flex-grow border-gray-300" />
-          <span className="px-2 text-gray-400">OR</span>
-          <hr className="flex-grow border-gray-300" />
-        </div>
-        <div className="my-4 flex flex-col items-center gap-y-2">
-          <button className="w-64 flex items-center justify-center border border-gray-500 py-2 rounded-lg hover:bg-gray-100 transition duration-200">
-            <img
-              src="https://img.icons8.com/color/48/000000/google-logo.png"
-              alt="Google Logo"
-              className="w-5 h-5 mr-3"
-              width={20}
-              height={20}
-            />
-            Continue with Google
-          </button>
-        </div>
+        
+    
         {/* Login Link */}
       </div>
     </div>
