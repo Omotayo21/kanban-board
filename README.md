@@ -1,74 +1,48 @@
-# Product Management Web App
-Overview
-This project is a product management web application built using Next.js, TypeScript, Redux, and Tailwind CSS. The app allows users to manage products by adding, editing, and deleting them. The product listing is updated in real-time, reflecting the latest changes without requiring a page reload. The app also includes a product listing page with options to filter products by category or price, and product details can be viewed individually.
+# Kanban task management web 
 
-The application is designed for administrators or store managers, not for customers. Therefore, there is no shopping cart or order functionality. All product data is stored and managed using local storage, which persists even after the page is refreshed.
+This is a full stack web project built by me with design inspired from frontendmentor.io
 
-Setup and Running Locally
-Prerequisites
-Node.js (>= 14.x)
-npm or yarn
-Installation
-Clone the repository:
+## Table of contents
 
-```
+- [Overview](#overview)
+  
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+- 
 
-git clone https://github.com/your-username/product-management-app.git
-cd product-management-app
-```
-Install dependencies:
+## Overview
 
-```
 
-npm install
-# or
-yarn install
-```
-### Start the development server:
 
-bash
-Copy code
-npm run dev
-# or
-yarn dev
-Open the app in your browser:
+Users are able to:
 
-Visit http://localhost:3000 to see the application running.
+- Sign up, verify their emails and login
+- Each user has his own personal database
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Create, read, update, and delete boards and tasks
+- Receive form validations when trying to create/edit boards and tasks
+- Mark subtasks as complete and move tasks between columns
+- Hide/show the board sidebar
+- Toggle the theme between light/dark modes
+-
 
-Building for Production
-To create an optimized production build, run:
+### Links
 
-bash
-Copy code
-npm run build
-# or
-yarn build
-This will generate the optimized output in the .next directory.
+- Solution URL: [https://github.com/Omotayo21/kanban-board](https://github.com/Omotayo21/kanban-board)
+- Live Site URL: [https://toyan-kanban.vercel.app](https://toyan-kanban.vercel.app)
 
-Running the Production Build
-To start the production server, run:
+## My process
 
-bash
-Copy code
-npm run start
-# or
-yarn start
-Design Decisions, Optimizations, and Trade-offs
-State Management: Redux Toolkit was chosen for state management due to its simplicity and ease of use. It provides a clear and predictable state flow, which is essential for managing product data consistently across the app.
+### Built with
 
-Local Storage: Local storage was used to persist product data, allowing users to see the same data even after a page reload. This approach was chosen for simplicity since a database was not required. However, local storage is not suitable for large-scale production apps where data needs to be shared across multiple devices.
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- [React](https://reactjs.org/) - JS library
+- [Next.js](https://nextjs.org/) - React framework
+- [Tailwind CSS](https://tailwindcss.com/) - For styles
+- [Mongoose](https://mongoosejs.com/) - For Database
+- [TypeScript](https://www.typescriptlang.org/) - For strict type checking
 
-UI/UX: The UI is designed to be minimal and functional. Tailwind CSS was used to quickly style components while maintaining a consistent design. The design prioritizes usability, ensuring that the core features (adding, editing, deleting, and viewing products) are easy to access and use.
-
-Routing: Next.js provides built-in routing that was leveraged for navigating between pages, including the main product listing page and the product editing page.
-
-Trade-offs: The use of local storage makes the app lightweight and easy to set up, but it limits data sharing between users. Additionally, since there is no server-side data, the application doesn't handle concurrent data changes from multiple users, which could be an issue in a multi-user environment.
-
-SEO Handling
-SEO (Search Engine Optimization) was considered in the following ways:
-
-Page Titles and Meta Tags: Each page has a descriptive title, and meta tags can be customized for SEO. For instance, the product detail pages could include specific meta descriptions for better search engine indexing.
-
-Next.js's Built-in SEO Features: Next.js provides server-side rendering, which improves the crawlability of the website by search engines. This ensures that the content is indexed properly, and the app is visible in search engine results.
-
-Semantic HTML: The app uses semantic HTML elements, which helps search engines understand the structure of the content, further enhancing SEO.

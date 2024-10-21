@@ -115,7 +115,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/app/api/boards/route.js"  ],
   "exclude": [
     "node_modules"
   ],
