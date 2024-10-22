@@ -120,9 +120,9 @@ export async function PUT(request) {
       return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
     }
 
-    const { searchParams } = new URL(request.url);
-    const boardId = searchParams.get("id");
-
+    //const { searchParams } = new URL(request.url);
+    //const boardId = searchParams.get("id");
+    const boardId = request.url.split('/').pop()
     const { boardTitle, columns } = await request.json(); // 'columns' is now just an array of names
 
     // Find the board and verify if it belongs to the user

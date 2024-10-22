@@ -98,7 +98,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeBoardId, refetch }) => {
 
   return (
     <div
-      className={`fixed top-0 lg:ml-[280px] w-full border-b border-gray-300 h-28 ${
+      className={`fixed top-0 lg:ml-[280px] sm:-ml-6 w-full border-b border-gray-300 h-28 ${
         darkMode ? "bg-gray-800 text-white" : "bg-[#F4F7FD] text-[#20212c]"
       }`}
     >
