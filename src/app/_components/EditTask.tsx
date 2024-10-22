@@ -21,7 +21,7 @@ interface Subtask {
 interface TaskData {
   title: string;
   description: string;
-  columnId: string;
+  columnId: any ;
   subtasks: Subtask[];
 }
 
