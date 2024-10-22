@@ -13,8 +13,8 @@ connect();
 export async function POST(request) {
   try {
     const { searchParams } = new URL(request.url);
-    const boardId = searchParams.get("id");
-
+    //const boardId = searchParams.get("id");
+    const boardId = request.url.split('/').pop()
     // Get user ID from token for authentication
     const userId = await getTokenData(request);
     const user = await User.findOne({ _id: userId }).select("-password");

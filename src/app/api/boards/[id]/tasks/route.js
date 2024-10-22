@@ -12,11 +12,26 @@ connect();
 
 export async function POST(request) {
   try {
-    const { searchParams } = new URL(request.url);
-    const columnId = searchParams.get("columnId");
-    const boardId = searchParams.get("boardId");
+   // const { searchParams } = new URL(request.url);
+    //const columnId = searchParams.get("columnId");
+    //const boardId = searchParams.get("boardId");
+    const url = request.url;
 
-    // Get user ID from token for authentication
+    // Split the URL into parts based on "/"
+    const urlParts = url.split('/');
+
+    // Extract boardId from the second-to-last part of the URL
+    const boardId = urlParts[urlParts.length - 2]; // Assuming boardId is in the second-to-last position
+
+    // Extract query parameters from the URL (after "?")
+    const queryParams = url.split('?')[1]; // Get the part after "?"
+    const params = new URLSearchParams(queryParams);
+
+    // Extract columnId from query params
+    const columnId = params.get('columnId');
+
+    console.log("Board ID from path:", boardId);
+    console.log("Column ID:", columnId);
     const userId = await getTokenData(request);
     const user = await User.findOne({ _id: userId }).select("-password");
 

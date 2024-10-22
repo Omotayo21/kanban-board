@@ -13,9 +13,9 @@ connect()
 
 export async function DELETE(request : NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
-    const taskId = searchParams.get("id");
-
+   // const { searchParams } = new URL(request.url);
+   // const taskId = searchParams.get("id");
+    const taskId = request.url.split('/').pop()
     const userId = await getTokenData(request);
     const user = await User.findOne({ _id: userId }).select("-password");
 

@@ -11,8 +11,8 @@ connect();
 // POST: Create a new board for the authenticated user
 export async function POST(request ) {
   try {
-    // Get user ID from token
-    const userId = await getTokenData(request); // Use 'request' instead of 'NextRequest'
+    
+    const userId = await getTokenData(request); 
     const user = await User.findOne({ _id: userId }).select("-password");
 
     if (!user) {
