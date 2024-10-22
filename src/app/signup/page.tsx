@@ -134,7 +134,7 @@ const Signup: React.FC = () => {
         </div>
         <div>
           <h2 className="text-2xl font-semibold text-start ">
-            Join Rahman's Kanban!
+            Join Rahman&apos;s Kanban!
           </h2>
           <p className="text-start text-gray-600 ">
             Create your account to start streamlining your workflow with our
@@ -235,7 +235,7 @@ const Signup: React.FC = () => {
             )}
           </div>
           <p className="text-sm font-light text-black-500">
-            ALready have an account ?{" "}
+            Already have an account ?{" "}
             <Link
               href="/login"
               className="font-medium text-indigo-600 hover:underline "
