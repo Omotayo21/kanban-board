@@ -12,6 +12,13 @@ export async function GET(request : NextRequest) {
  const columnId = request.url.split('/').pop()
 
   try {
+    const columnId = request.url.split('/').pop()
+    if(!columnId){
+      return new NextResponse(
+        JSON.stringify({ error: "Timestamp is required" }),
+        { status: 400 }
+      );
+    }
     const tasks = await Task.find({ columnId }).populate("subtasks"); // Fetch tasks for the given column
     return NextResponse.json(tasks, { status: 200 });
   } catch (error) {

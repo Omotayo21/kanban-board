@@ -17,7 +17,7 @@ export async function POST(request) {
     //const boardId = request.url.split('/').pop()
     const urlParts = request.url.split('/');
     
-    const boardId = urlParts[urlParts.length - 3];
+    const boardId = urlParts[urlParts.length - 2];
     const userId = await getTokenData(request);
     const user = await User.findOne({ _id: userId }).select("-password");
 
