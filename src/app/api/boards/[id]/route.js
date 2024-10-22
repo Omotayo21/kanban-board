@@ -14,7 +14,7 @@ export async function GET(request) {
     // Get user ID from token
     const userId = await getTokenData(request); // Use 'request' instead of 'NextRequest'
     const user = await User.findOne({ _id: userId }).select("-password");
-
+   if(!userId){throw new Error ('missing id ooo')}
     if (!user) {
       return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
     }
@@ -22,7 +22,7 @@ export async function GET(request) {
     // Extract the board ID from the request URL if available
     const { searchParams } = new URL(request.url);
     const boardId = searchParams.get("id");
-
+   if(!boardId){throw new Error ('missing id ooo')}
     if (boardId) {
       // Fetch a specific board
       if (!user.boards.includes(boardId)) {
