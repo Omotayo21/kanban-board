@@ -1,5 +1,7 @@
+// @ts-ignore
 import nodemailer from "nodemailer";
 import User from "../models/userModel";
+// @ts-ignore
 import bcryptjs from "bcryptjs";
 
 interface SendEmailProps {
