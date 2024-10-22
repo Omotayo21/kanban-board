@@ -7,8 +7,9 @@ connect();
 
 export async function GET(request : NextRequest) {
  
-  const { searchParams } = new URL(request.url);
-  const columnId = searchParams.get("id");
+ // const { searchParams } = new URL(request.url);
+ // const columnId = searchParams.get("id");
+ const columnId = request.url.split('/').pop()
 
   try {
     const tasks = await Task.find({ columnId }).populate("subtasks"); // Fetch tasks for the given column

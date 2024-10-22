@@ -8,8 +8,9 @@ connect();
 
 export async function PUT(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
-    const id = searchParams.get("id");
+  //  const { searchParams } = new URL(request.url);
+    //const id = searchParams.get("id");
+    const id = request.url.split('/').pop()
 
     // Parse the JSON body with type annotation
     const { isCompleted }: { isCompleted: boolean } = await request.json(); // Correctly parse the body

@@ -12,10 +12,12 @@ connect();
 // POST: Add new columns with tasks to a specific board
 export async function POST(request) {
   try {
-    const { searchParams } = new URL(request.url);
+    //const { searchParams } = new URL(request.url);
     //const boardId = searchParams.get("id");
-    const boardId = request.url.split('/').pop()
-    // Get user ID from token for authentication
+    //const boardId = request.url.split('/').pop()
+    const urlParts = request.url.split('/');
+    
+    const boardId = urlParts[urlParts.length - 3];
     const userId = await getTokenData(request);
     const user = await User.findOne({ _id: userId }).select("-password");
 
