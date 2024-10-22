@@ -76,10 +76,10 @@ const BoardPage: React.FC<BoardPageProps> = ({ params }) => {
 
   const fetchBoard = async () => {
     try {
-      const response = await axios.get(`/api/boards/${boardId}?id=${boardId}`);
+      const Boardresponse = await axios.get(`/api/boards/${boardId}?id=${boardId}`);
 
       // Fetch tasks for each column
-      const tasksPromises = response.data.columns.map(async (column: any) => {
+      const tasksPromises = Boardresponse.data.columns.map(async (column: any) => {
         const tasksResponse = await axios.get(`/api/tasks/${column._id}?id=${column._id}`);
         return { columnId: column._id, tasks: tasksResponse.data };
       });
