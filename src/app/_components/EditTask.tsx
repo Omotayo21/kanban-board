@@ -29,7 +29,7 @@ interface EditTaskProps {
   onClose: () => void;
   boardId: string;
   taskId: string;
-  taskData: TaskData;
+  taskData: any;
   columns: Column[];
   refetch: () => void;
   onCloseSelectedTask: () => void;
