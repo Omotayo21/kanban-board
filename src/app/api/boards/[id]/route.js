@@ -20,9 +20,11 @@ export async function GET(request) {
     }
 
     // Extract the board ID from the request URL if available
-    const { searchParams } = new URL(request.url);
-    const boardId = searchParams.get("id");
-   if(!boardId){throw new Error ('missing id ooo')}
+    //const { searchParams } = new URL(request.url);
+//const boardId = searchParams.get("id");
+   const boardId = request.url.split('/').pop()
+    
+    if(!boardId){throw new Error ('missing id ooo')}
     if (boardId) {
       // Fetch a specific board
       if (!user.boards.includes(boardId)) {
