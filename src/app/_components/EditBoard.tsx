@@ -9,10 +9,11 @@ import { setIsEditedBoard } from "../redux/uiSlice";
 interface EditBoardProps {
   onClose: () => void;
   activeBoardId: string;
-  currentBoardTitle: string;
+  currentBoardTitle: any;
   existingColumns: { columnName: string }[];
   fetchBoard: () => void;
   refetch: () => void;
+  currentBoard : any;
 }
 type Column = {
   name: string;

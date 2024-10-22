@@ -15,7 +15,7 @@ import { toggleMobileNav } from "../redux/uiSlice";
 import { RootState } from "../redux/store"; 
 
 interface NavbarProps {
-  activeBoardId: string | null;
+  activeBoardId: any;
   refetch: () => void;
 }
 

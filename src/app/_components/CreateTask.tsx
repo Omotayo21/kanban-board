@@ -9,9 +9,10 @@ import { BsChevronDown } from "react-icons/bs";
 interface CreateTaskProps {
   onClose: () => void;
   boardId: string;
-  boardTitle: string;
+
   columns: Column[];
   fetchBoard: () => void;
+  refetch: () => void;
 }
 interface Column {
   _id: string;
