@@ -77,9 +77,10 @@ export async function DELETE(request) {
       return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
     }
 
-   const { searchParams } = new URL(request.url);
-   const boardId = searchParams.get("id");
-
+  // const { searchParams } = new URL(request.url);
+  // const boardId = searchParams.get("id");
+const boardId = request.url.split('/').pop()
+    
     // Find the board and verify if it belongs to the user
     const board = await Board.findOne({
       _id: boardId,
