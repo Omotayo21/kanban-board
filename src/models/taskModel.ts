@@ -12,9 +12,7 @@ const taskSchema = new mongoose.Schema({
   },
 });
 
-if (mongoose.models.Task) {
-  delete mongoose.models.Task;
-}
+
 
 const Task = mongoose.model("Task", taskSchema);
 export default Task;
