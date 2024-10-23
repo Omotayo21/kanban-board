@@ -5,9 +5,7 @@ const subtaskSchema = new mongoose.Schema({
   isCompleted: { type: Boolean, default: false },
 });
 
-if (mongoose.models.Subtask) {
-  delete mongoose.models.Subtask;
-}
+
 
 const Subtask = mongoose.models.Subtask || mongoose.model("Subtask", subtaskSchema);
 export default Subtask;
