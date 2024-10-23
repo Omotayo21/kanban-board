@@ -1,25 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
-import Task from "../../../../models/taskModel"; // Import your Task model
+import Task from "../../../../models/taskModel";
 import { connect } from "../../../../dbConfig/dbConfig";
-import Subtask from '../../../../models/subtaskModel'
+import Subtask from '../../../../models/subtaskModel';
 
-connect();
+export async function GET(request: NextRequest) {
+  await connect(); // Ensure the connection is established
 
-export async function GET(request : NextRequest) {
- 
- // const { searchParams } = new URL(request.url);
- // const columnId = searchParams.get("id");
- const columnId = request.url.split('/').pop()
+  const columnId = request.url.split('/').pop();
 
   try {
-    const columnId = request.url.split('/').pop()
-    if(!columnId){
+    if (!columnId) {
       return new NextResponse(
-        JSON.stringify({ error: "Timestamp is required" }),
+        JSON.stringify({ error: "Column ID is required" }),
         { status: 400 }
       );
     }
-    const tasks = await Task.find({ columnId }).populate("subtasks"); // Fetch tasks for the given column
+    
+    const tasks = await Task.find({ columnId }).populate("subtasks");
     return NextResponse.json(tasks, { status: 200 });
   } catch (error) {
     console.error("Error fetching tasks:", error);
