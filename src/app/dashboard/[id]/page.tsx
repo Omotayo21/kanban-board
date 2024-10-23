@@ -162,7 +162,8 @@ const BoardPage: React.FC<BoardPageProps> = ({ params }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ isCompleted }),
       });
-      refetch(); // Refetch board after subtask update
+      refetch();
+      refetchTasks(); // Refetch board after subtask update
     } catch (error) {
       console.error("Failed to update subtask", error);
     }
