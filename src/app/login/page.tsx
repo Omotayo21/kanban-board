@@ -105,7 +105,7 @@ const Login = () => {
   }, [user]);
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-gray-200">
+    <div className={`min-h-screen flex flex-col justify-center items-center  ${ darkMode ? "bg-gray-600" : "bg-gray-200" }`}>
       <div
         className={`p-8 rounded-lg shadow-md gap-y-2 flex flex-col ${
           darkMode ? "bg-gray-800 text-white" : "bg-white text-black"
