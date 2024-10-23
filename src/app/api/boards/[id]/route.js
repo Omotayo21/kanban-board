@@ -82,10 +82,7 @@ export async function DELETE(request) {
 const boardId = request.url.split('/').pop()
     
     // Find the board and verify if it belongs to the user
-    const board = await Board.findOne({
-      _id: boardId,
-      _id: { $in: user.boards },
-    });
+    const board = await Board.findById(boardId);
 
     if (!board) {
       return NextResponse.json({ message: "Board not found" }, { status: 404 });

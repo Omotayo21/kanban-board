@@ -151,10 +151,11 @@ const EditTask: React.FC <EditTaskProps> = ({ onClose, boardId, taskId, taskData
       );
 
       toast.success("Task updated successfully");
+      dispatch(setIsCreatedNewColumn(true));
       refetch(); // Refetch board data to reflect the updated task
       onClose();
       onCloseSelectedTask()
-      dispatch(setIsCreatedNewColumn(true));
+    
     } catch (error : any) {
       console.error(
         "Error updating task:",

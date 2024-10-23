@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import Loader2 from "./Loader";
 import { toast } from "react-toastify";
-import { useAppSelector } from "../redux/hook";
-
+import { useAppSelector, useAppDispatch } from "../redux/hook";
+import { setIsCreatedNewColumn } from "../redux/uiSlice";
 interface DeleteTaskProps {
   taskId: string; 
   onClose: () => void;
@@ -19,6 +19,7 @@ const DeleteTask: React.FC<DeleteTaskProps> = ({
   fetchBoard,
   closeTask,
 }) => {
+  const dispatch = useAppDispatch()
   const [loading, setLoading] = useState<boolean> (false);
   const {darkMode} = useAppSelector((state) => state.ui);
   const handleDelete = async () => {
@@ -30,6 +31,7 @@ const DeleteTask: React.FC<DeleteTaskProps> = ({
       onClose();
       fetchBoard();
       closeTask();
+      dispatch(setIsCreatedNewColumn(true))
       toast.success("Task deleted successfully");
     } catch (error) {
       console.error("Error deleting task:", error);

@@ -91,7 +91,7 @@ const CreateColumn: React.FC<CreateColumnProps> = ({
         tasks: [],
       }));
 
-      dispatch(setIsCreatedNewColumn(true));
+   
 
       const response = await axios.post(
         `/api/boards/${boardId}/columns?id=${boardId}`,
@@ -103,6 +103,7 @@ const CreateColumn: React.FC<CreateColumnProps> = ({
       if (response.status === 201) {
          refetch(); 
         toast.success("Columns created successfully!");
+        dispatch(setIsCreatedNewColumn(true));
         onClose();
        
       } else {

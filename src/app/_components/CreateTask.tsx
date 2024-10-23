@@ -18,7 +18,7 @@ interface Column {
   _id: string;
   columnName: string;
 }
-const CreateTask:React.FC<CreateTaskProps> = ({ onClose, boardId, fetchBoard, columns }) => {
+const CreateTask:React.FC<CreateTaskProps> = ({ onClose, boardId, refetch, columns }) => {
   const dispatch = useAppDispatch();
   const { darkMode } = useAppSelector((state) => state.ui);
   const [title, setTitle] = useState(""); 
@@ -132,10 +132,11 @@ const handleRemoveSubtask = (index: number) => {
 
       console.log("Task created:", response.data);
       toast.success("Task created successfully");
- fetchBoard();
+
  dispatch(setIsCreatedNewColumn(true));
       onClose();
-     
+      dispatch(setIsCreatedNewColumn(true));
+      refetch()
     } catch (error : any) {
       console.error(
         "Error creating task:",
