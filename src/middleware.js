@@ -41,6 +41,6 @@ export const config = {
     '/forgotpassword',
     '/resetpassword',
     '/dashboard/:path*',  // Include dynamic routes under dashboard
-    '/dashboard,      // Any dynamic route for boards, e.g., /board/[id]
+    '/dashboard',      // Any dynamic route for boards, e.g., /board/[id]
   ],
 };
