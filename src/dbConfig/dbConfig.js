@@ -1,41 +1,39 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGO_URI;
-
-if (!MONGODB_URI) {
-  throw new Error('Please define the MONGO_URI environment variable');
-}
-
-let cached = global.mongoose;
-
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
-}
+let isConnected = false; // Track the connection status
 
 export async function connect() {
-  if (cached.conn) {
-    return cached.conn;
+  if (isConnected) {
+    console.log("Already connected to MongoDB");
+    return;
   }
 
-  if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGODB_URI, {
-      bufferCommands: false, // Avoid buffering in serverless environment
-    }).then((mongoose) => {
-      const connection = mongoose.connection;
+  try {
+    const url = process.env.MONGO_URI; // Ensure your environment variable is set correctly
+    if (!url) {
+      throw new Error("MONGO_URI is not defined in environment variables");
+    }
 
-      connection.on('connected', () => {
-        console.log('MONGODB connected successfully');
-      });
-
-      connection.on('error', (err) => {
-        console.log('Connection error: ' + err);
-        process.exit(1);
-      });
-
-      return mongoose;
+    // Connect to MongoDB with proper error handling
+    await mongoose.connect(url, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true, // Optional but recommended to avoid warnings
     });
+
+    const connection = mongoose.connection;
+
+    connection.on('connected', () => {
+      console.log('MONGODB connected successfully');
+      isConnected = true; // Mark as connected after successful connection
+    });
+
+    connection.on('error', (err) => {
+      console.log('Connection error, ensure MongoDB is working: ' + err);
+      process.exit(1); // Exit the process on connection error
+    });
+
+  } catch (error) {
+    console.error('Something went wrong while connecting to MongoDB:', error);
+    throw error; // Rethrow the error for further handling
   }
-  
-  cached.conn = await cached.promise;
-  return cached.conn;
 }
