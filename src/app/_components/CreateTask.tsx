@@ -261,7 +261,7 @@ const handleRemoveSubtask = (index: number) => {
           {columns.map((column) => (
             <li
               key={column._id}
-              className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+              className={`px-4 py-2 hover:bg-gray-200 cursor-pointer  ${darkMode ? "bg-gray-800 text-white" : "bg-white text-black"}`}
               onClick={() => handleSelect(column._id)}
             >
               {column.columnName}
