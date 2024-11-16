@@ -3,9 +3,9 @@ import Task from "../../../../models/taskModel";
 import { connect } from "../../../../dbConfig/dbConfig";
 import Subtask from '../../../../models/subtaskModel';
 
+connect()
 export async function GET(request: NextRequest) {
-  await connect(); // Ensure the connection is established
-
+   
   const columnId = request.url.split('/').pop();
 
   try {
