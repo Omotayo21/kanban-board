@@ -38,8 +38,6 @@ const userSchema = new Schema(
     timestamps: true, // Automatically adds createdAt and updatedAt fields
   }
 );
-if (mongoose.models.User) {
-  delete mongoose.models.User;
-}
+
 const User = mongoose.models.User || mongoose.model("User", userSchema);
 export default User;
