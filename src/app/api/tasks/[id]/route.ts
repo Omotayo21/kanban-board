@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
       );
     }
     
-    const tasks = await Task.find({ columnId }).populate("subtasks").lean();
+    const tasks = await Task.find({columnId}).populate({path: "subtasks"}).lean();
     return NextResponse.json(tasks, { status: 200 });
   } catch (error) {
     console.error("Error fetching tasks:", error);
