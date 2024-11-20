@@ -1,4 +1,8 @@
 import mongoose from "mongoose";
+import Board from "../models/boardModel"
+import Column from "../models/columnModel"
+import Task from "../models/taskModel"
+import Subtask from "../models/subtaskModel"
 
 let isConnected = false; // Track the connection status
 
@@ -24,14 +28,22 @@ export async function connect() {
 
     connection.on('connected', () => {
       console.log('MONGODB connected successfully');
-      isConnected = true; // Mark as connected after successful connection
+      isConnected = true;
+     
+      
+      
+      
+      // Mark as connected after successful connection
     });
 
     connection.on('error', (err) => {
       console.log('Connection error, ensure MongoDB is working: ' + err);
       process.exit(1); // Exit the process on connection error
     });
-
+ Board;
+      Column;
+      Task;
+      Subtask;
   } catch (error) {
     console.error('Something went wrong while connecting to MongoDB:', error);
     throw error; // Rethrow the error for further handling
