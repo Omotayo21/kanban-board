@@ -72,7 +72,7 @@ export async function GET(request) {
         path: "columns", // Populate columns
         populate: {
           path: "tasks", // Populate tasks within columns
-          populate: { path: "subTasks" }, // Populate subtasks within tasks
+          populate: { path: "subtasks" }, // Populate subtasks within tasks
         },
       })
     return NextResponse.json(boards, { status: 200 });
