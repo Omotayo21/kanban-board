@@ -64,10 +64,17 @@ export async function GET(request) {
     }
 
     // Fetch all boards that belong to the user and populate their columns
-    const boards = await Board.find({ _id: { $in: user.boards } }).populate(
-      "columns"
-    );
-
+    //const boards = await Board.find({ _id: { $in: user.boards } }).populate(
+      //"columns"
+    //);
+ const boards = await Board.find({ _id: { $in: user.boards } })
+      .populate({
+        path: "columns", // Populate columns
+        populate: {
+          path: "tasks", // Populate tasks within columns
+          populate: { path: "subTasks" }, // Populate subtasks within tasks
+        },
+      })
     return NextResponse.json(boards, { status: 200 });
   } catch (error) {
     console.error("Error fetching boards:", error);
