@@ -20,7 +20,7 @@ const ForgotPasswordReset: React.FC = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const response = await axios.post('/api/users/forgotpassword', { email });
+      const response = await axios.post('/api/forgotpassword', { email });
       toast.success('A password reset link has been sent to your mail');
       router.push('/login');
       console.log(response.data);
