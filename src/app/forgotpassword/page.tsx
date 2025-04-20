@@ -23,7 +23,7 @@ const submit = async (e : any) => {
         toast.success('A password Reset link has been sent to your mail')
         router.push('/login')
         console.log(response.data)
-    } catch (error) {
+    } catch (error : any) {
         toast.error(error.response.data)
         console.log(error)
     } finally{
