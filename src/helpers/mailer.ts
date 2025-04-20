@@ -68,7 +68,7 @@ export const sendEmail = async ({ email, emailType, userId }: SendEmailProps): P
                 <p style="color: #737373; margin-bottom: 15px;">Greetings!</p>
                 <p style="color: #737373; margin-bottom: 15px;">${mainMessage}</p>
                 <p style="text-align: center; margin-bottom: 20px;">
-                    <a href="${process.env.DOMAIN}/${
+                    <a href="https://kanban-board-vert-seven.vercel.app/${
         emailType === "VERIFY" ? "verifyEmail" : "resetpassword"
       }?token=${hashedToken}" style="background-color: #192586; color: #fafafa; padding: 10px 20px; border-radius: 5px; text-decoration: none;">
                         ${buttonLabel}
@@ -76,7 +76,7 @@ export const sendEmail = async ({ email, emailType, userId }: SendEmailProps): P
                 </p>
                 <p style="color: #737373; margin-bottom: 15px;">${alternativeMessage}</p>
                 <p style="color: #737373; margin-bottom: 15px;">
-                    ${process.env.DOMAIN}/${
+                    https://kanban-board-vert-seven.vercel.app/${
         emailType === "VERIFY" ? "verifyEmail" : "resetpassword"
       }?token=${hashedToken}
                 </p>
