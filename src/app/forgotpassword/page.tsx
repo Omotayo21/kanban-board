@@ -15,7 +15,7 @@ const { darkMode } = useAppSelector((state: any) => state.ui);
     const router = useRouter()
     const [email, setMail] = useState('')
     const [loading, setLoading] = useState(false)
-const submit = async (e) => {
+const submit = async (e : any) => {
     e.preventDefault
     try {
         setLoading(true)
